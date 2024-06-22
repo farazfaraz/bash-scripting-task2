@@ -1,5 +1,5 @@
 # My Project
-#### Extend the [bash-scripting-task2]() script to do incremental backups instead of getting everything from scratch. You're able to use other tools like Restic, Kopia, etc.
+#### Extend the [bash-scripting-task2](https://github.com/farazfaraz/bash-scripting-task1) script to do incremental backups instead of getting everything from scratch. You're able to use other tools like Restic, Kopia, etc.
 
 # use the project
 * First of all you have to create a user on aws.amazon.com, write iam on the console and the select on users and create the user. You have to pay attention to add the AmazonS3FullAccess policy to the user, after the user is created you can click on it, then click on the Permissions tab and finally on the Permissions Policy part you can check if you have assined as well the mentioned policy.
