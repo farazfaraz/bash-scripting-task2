@@ -1,16 +1,10 @@
-  GNU nano 7.2                                                                       BackupToStorage.sh                                                                                 
 #!/usr/bin/bash
 
 function usage {
  cat <<EOF
  $0 <option> <path>
- --path --> path for doing backup and save it on AWS storage
+ --path --> path for doing backup 
 EOF
-}
-function createMetadata {
- for file in $(tree -afi --noreport $2);do
-  [[ -f $file ]] &&  md5sum $file >> $1
- done
 }
 
 if [[ $# -ne 2 ]];then
@@ -50,7 +44,9 @@ new_backup_dir="$backup_dir/$timestamp"
 mkdir -p "$new_backup_dir" #-p flag ensures that any necessary parent directories are also created.
 
 # Perform the incremental backup
-tar --create --listed-incremental="$backup_dir/latest.snapshot" --file="$new_backup_dir/backup.tar" "$source_dir"
+#--listed-incremental="$backup_dir/latest.snapshot": This option tells tar to create an incremental backup. It uses the latest.snapshot file to keep track of changes since the 
+#last backup. If the latest.snapshot file does not exist, a full backup is performed and a new snapshot file is created.
+tar --create --listed-incremental="$backup_dir/latest.snapshot" --file="$new_backup_dir/backup.tar" "$path"
 # Update the latest symlink
 #No matter how many backups you create, latest will always point to the most recent one.
 #-s: Creates a symbolic (soft) link instead of a hard link. A soft link is a pointer to another file or directory.
