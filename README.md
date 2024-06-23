@@ -16,6 +16,6 @@ And you have to see an output like the following :
 197395774601    arn:aws:iam::197395774601:user/faraz   AIDH3FLSYYUI2YAQVBL4L
 ```
 * Write s3 on the console of aws and create a bucket
-* Download BachupToStorage.sh and then change the s3_bucket variable to the name that you have selected during the creation of your bucket on aws.
+* Download incremental-backup.sh and then change the s3_bucket variable to the name that you have selected during the creation of your bucket on aws.
 * Transform the project into an executable project : chmod +x BachupToStorage.sh
 * run the program passing a path as an argument where you want to do backup: ./BackupToStorage.sh --path /your-path
