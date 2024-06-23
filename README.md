@@ -8,5 +8,11 @@
 * Transform the project into an executable project : chmod +x BachupToStorage.sh
 * run the program passing a path as an argument where you want to do backup: ./BackupToStorage.sh --path /your-path
 * If you want to schedule incremental backups using cron open the crontab file for editing by the following command:
+```
+crontab -e
+```
 * Add the following entry to schedule a daily incremental backup at 2:00 AM:
+```
+0 2 * * * /path/to/backup_script.sh >> /path/to/backup_log.txt 2>&1
+```
 * Save and exit the crontab file.
